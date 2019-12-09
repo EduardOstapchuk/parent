@@ -1,100 +1,129 @@
-* {
-    padding: 0;
-    margin: 0;
-}
-
 body {
-    background: rgb(63, 189, 182);
-}
-
-.parent {
-    display: inline-flex;
-    height: 300px;
-    margin: 76px;
-}
-
-.parent2 {
-    position: relative;
-    top: -195px;
-    right: 31%;
-}
-
-.gear {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    margin: auto;
-    background-color: black;
-    border-radius: 50%;
-    animation: spin 4s linear infinite;
-}
-
-.gear2 {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    margin: auto;
-    background-color: black;
-    border-radius: 50%;
-    animation: spin2 4s linear infinite;
-}
-
-.gear .center {
-    position: absolute;
-    top: 50px;
-    left: 50px;
-    z-index: 10;
-    width: 50px;
-    height: 50px;
-    background: rgb(63, 189, 182);
-    border-radius: 50%;
-}
-
-.gear2 .center {
-    position: absolute;
-    top: 50px;
-    left: 50px;
-    z-index: 10;
-    width: 50px;
-    height: 50px;
-    background: rgb(63, 189, 182);
-    border-radius: 50%;
+    background: black;
 }
 
 
-.tooth {
-    position: absolute;
-    top: -27px;
-    left: 60px;
-    z-index: 1;
+
+.top_checkbox {
+    display: block;
     width: 30px;
-    height: 200px;
-    background: rgb(0, 0, 0);
+    height: 30px;
+    background: lightsalmon;
+    border: 3px solid gray;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    margin-left: 20px;
+    margin-top: 30px;
 }
 
-.tooth:nth-child(2) {
+.gear1 {
+    display: inline-block;
+    position: relative;
+    top: 50px;
+    left: 50px;
+}
+
+.gear11 {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    background: lightsalmon;
+    border-radius: 50%;
+}
+
+.gear11 .center1 {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    width: 30px;
+    height: 30px;
+    background: black;
+    border-radius: 50%;
+}
+
+.tooth1 {
+    position: absolute;
+    top: -6px;
+    left: 19px;
+    z-index: 1;
+    width: 11px;
+    height: 62px;
+    background: lightsalmon;
+}
+
+.tooth1:nth-child(2) {
     transform: rotate(45deg);
 }
 
-.tooth:nth-child(3) {
+.tooth1:nth-child(3) {
     transform: rotate(90deg);
 }
 
-.tooth:nth-child(4) {
+.tooth1:nth-child(4) {
     transform: rotate(135deg);
 }
 
-
-@keyframes spin {
+@keyframes spin1 {
     from {
-        transform: rotate(360deg);
+        transform: rotate(0deg);
     }
 
     to {
-        transform: rotate(0deg);
-
+        transform: rotate(360deg);
     }
+}
 
+.gear2 {
+    display: inline-block;
+    position: relative;
+    top: 14px;
+    left: 48px;
+
+}
+
+.gear21 {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    background: lightsalmon;
+    border-radius: 50%;
+}
+
+.gear21 .center2 {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    width: 30px;
+    height: 30px;
+    background: black;
+    border-radius: 50%;
+}
+
+.tooth2 {
+    position: absolute;
+    top: -6px;
+    left: 19px;
+    z-index: 1;
+    width: 11px;
+    height: 62px;
+    background: lightsalmon;
+}
+
+.tooth2:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+.tooth2:nth-child(3) {
+    transform: rotate(90deg);
+}
+
+.tooth2:nth-child(4) {
+    transform: rotate(135deg);
 }
 
 @keyframes spin2 {
@@ -103,8 +132,79 @@ body {
     }
 
     to {
-        transform: rotate(360deg);
-
+        transform: rotate(-360deg);
     }
+}
 
+.gear-checkbox {
+    display: none;
+}
+
+.check {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    top: 46px;
+    left: 38px;
+    transition: opacity 2s ease;
+}
+
+.check1 {
+    display: inline-block;
+    position: absolute;
+    height: 2px;
+    width: 7px;
+    background: black;
+    transform: rotate(45deg);
+}
+
+.check2 {
+    position: relative;
+    display: inline-block;
+    height: 2px;
+    width: 14px;
+    background: black;
+    transform: rotate(315deg);
+    left: 4px;
+    top: -15px;
+}
+
+.gear-checkbox:checked~.check {
+    opacity: 1;
+    visibility: visible;
+}
+
+.actived {
+    position: relative;
+    display: none;
+    font-size: 14px;
+    color: wheat;
+    top: 100px;
+    left: -100px;
+}
+
+.disable {
+    position: relative;
+    display: inline-block;
+    font-size: 14px;
+    color: wheat;
+    top: 100px;
+    left: -100px;
+}
+
+.gear-checkbox:checked~.actived {
+    display: inline-block;
+}
+
+.gear-checkbox:checked~.disable {
+    display: none;
+}
+
+
+.gear-checkbox:checked~.gear1 {
+    animation: spin1 5s linear infinite;
+}
+
+.gear-checkbox:checked~.gear2 {
+    animation: spin2 5s linear infinite;
 }
